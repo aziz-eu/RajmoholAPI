@@ -1,0 +1,6 @@
+@Rajmohol_HostAddress = http://localhost:5218
+
+GET {{Rajmohol_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
