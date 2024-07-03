@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Rajmohol;
 using Rajmohol.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddAutoMapper(typeof(MapingConfig));
 
 var app = builder.Build();
 
