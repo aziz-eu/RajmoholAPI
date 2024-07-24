@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Rajmohol;
 using Rajmohol.Data;
+using Rajmohol.Repository;
+using Rajmohol.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 });
 
 builder.Services.AddAutoMapper(typeof(MapingConfig));
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 
 var app = builder.Build();
 
