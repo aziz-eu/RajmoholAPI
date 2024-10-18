@@ -34,8 +34,8 @@ namespace Rajmohol.Controllers
         {
             try
             {
-                IEnumerable<VillaNumber> villaNumbers = await _villaNumberDb.GetAllAsync();
-                _response.Result = _mapper.Map<List<VillaUpdateDTO>>(villaNumbers);
+                IEnumerable<VillaNumber> villaNumbers = await _villaNumberDb.GetAllAsync(includeProperties: "Villa");
+                _response.Result = _mapper.Map<List<VillaNumberDTO>>(villaNumbers);
                 _response.IsSuccess = true;
                 _response.StatusCode = HttpStatusCode.OK;
                 return Ok(_response);
@@ -63,7 +63,7 @@ namespace Rajmohol.Controllers
                     return BadRequest("Invaild Id");
                 }
 
-                var villaNumber = await _villaNumberDb.GetAsync(u => u.VillaNo == id);
+                var villaNumber = await _villaNumberDb.GetAsync(u => u.VillaNo == id, includeProperties: "Villa");
                 if (villaNumber == null)
                 {
                     return NotFound();

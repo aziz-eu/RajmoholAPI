@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Rajmohol.Models.DTOs.Villa;
 
 namespace Rajmohol.Models.DTOs.VillaNumber
 {
@@ -11,6 +12,7 @@ namespace Rajmohol.Models.DTOs.VillaNumber
         [Required]
         public int VillaId { get; set; }
         public string? SpecialDetails { get; set; }
+        public VillaDTO Villa { get; set; }
 
     }
 }
